@@ -1,9 +1,9 @@
 package main
 
+// Go code formatter to clean up any ugly indents and such.
 import "fmt"
 
-// Go code formatter to clean up any ugly indents and such.
-
 func main() {
+	// Print “Hello, World!” to console
 	fmt.Println("Hello World")
 }

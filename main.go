@@ -2,6 +2,7 @@ package main
 
 // Go code formatter to clean up any ugly indents and such.
 import (
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -26,6 +27,7 @@ func router() *mux.Router {
 
 // Initiate web server
 func main() {
+	fmt.Println(" Starting web server at `localhost:9100`\n Press ctrl+C to close.")
 	router := router()
 	srv := &http.Server{
 		Handler:      router,

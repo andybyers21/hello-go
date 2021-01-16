@@ -10,7 +10,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func handler(w, http.ResponseWriter, r *http.Request) {
+func handler(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, "Hello, world!\n")
 }
 
@@ -19,7 +19,7 @@ func router() *mux.Router {
 	r := mux.NewRouter()
 	r.HandleFunc("/", handler)
 	// r.HandleFunc("/", homeHandler)
-	// r.HandleFunc("/about", aboutHandler)	
+	// r.HandleFunc("/about", aboutHandler)
 	// r.HandleFunc("/contact", contactHandler)
 	return r
 }
@@ -28,10 +28,10 @@ func router() *mux.Router {
 func main() {
 	router := router()
 	srv := &http.Server{
-		Handler: router,
-		Addr: "127.0.0.1:9100",
+		Handler:      router,
+		Addr:         "127.0.0.1:9100",
 		WriteTimeout: 10 * time.Second,
-		ReadTimeout: 10 * time.Second,
+		ReadTimeout:  10 * time.Second,
 	}
 
 	log.Fatal(srv.ListenAndServe())

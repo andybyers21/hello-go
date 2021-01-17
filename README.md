@@ -1,5 +1,3 @@
 # Hello-Go
 
-A basic web app which can be served from a browser @ localhost:9100
-
-Tutorial can be found [here](https://hackersandslackers.com/create-your-first-golang-app/)
+A basic web app to serve static files (HTML/CSS etc.) from the browser @ localhost:9100

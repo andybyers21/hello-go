@@ -13,13 +13,14 @@ import (
 func router() *mux.Router {
 	r := mux.NewRouter()
 	r.Handle("/", http.FileServer(http.Dir("./static/")))
+	// Serve assets within "static" folder
 	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("static/"))))
 	return r
 }
 
 // Initiate web server
 func main() {
-	log.Println(" Starting web server at `localhost:9100`\nPress ctrl+C to close.")
+	log.Println(" Starting web server at `localhost:9100`. Press ctrl+C to close.")
 	router := router()
 	srv := &http.Server{
 		Handler:      router,

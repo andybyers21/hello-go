@@ -2,7 +2,6 @@ package main
 
 // Go code formatter to clean up any ugly indents and such.
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"time"
@@ -10,24 +9,17 @@ import (
 	"github.com/gorilla/mux"
 )
 
-// func handler(w http.ResponseWriter, r *http.Request) {
-// 	io.WriteString(w, "../static/index.html")
-// }
-
-//Route
+// Route
 func router() *mux.Router {
 	r := mux.NewRouter()
-	// r.HandleFunc("/", handler)
 	r.Handle("/", http.FileServer(http.Dir("./static/")))
-	// r.HandleFunc("/", homeHandler)
-	// r.HandleFunc("/about", aboutHandler)
-	// r.HandleFunc("/contact", contactHandler)
+	r.PathPrefix("/").Handler(http.StripPrefix("/", http.FileServer(http.Dir("static/"))))
 	return r
 }
 
 // Initiate web server
 func main() {
-	fmt.Println(" Starting web server at `localhost:9100`\n Press ctrl+C to close.")
+	log.Println(" Starting web server at `localhost:9100`\nPress ctrl+C to close.")
 	router := router()
 	srv := &http.Server{
 		Handler:      router,

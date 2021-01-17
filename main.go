@@ -21,7 +21,7 @@ func router() *mux.Router {
 
 // Initiate web server
 func main() {
-	fmt.Println(" Starting web server at `localhost:9100`.\nPress ctrl+C to close.")
+	fmt.Println("Starting web server at `localhost:9100`.\nPress ctrl+C to close.")
 	router := router()
 	srv := &http.Server{
 		Handler:      router,
